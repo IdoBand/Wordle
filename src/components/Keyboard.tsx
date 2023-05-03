@@ -8,8 +8,8 @@ interface KeyboardProps {
     enterClickHandler: any
 }
 
-const BASIC_KEY_CLASSNAME: string = 'h-12 w-12 border-solid border border-black bg-keyCap rounded-lg m-0.5 hover:bg-light'
-const ENTER_BACK_CLASSNAME: string = 'h-12 w-20 bg-light rounded-lg m-0.5 hover:bg-red-400'
+const BASIC_KEY_CLASSNAME = 'h-12 w-12 border-solid border border-black bg-keyCap rounded-lg m-0.5 hover:bg-light'
+const ENTER_BACK_CLASSNAME = 'h-12 w-20 bg-light rounded-lg m-0.5 hover:bg-red-400'
 export default function Keyboard({handleKeyPressed, addLetter, removeLetter, enterClickHandler}: KeyboardProps) {
     const firsRow = ['Q','W','E','R','T','Y','U','I','O','P'];
     const secondRow = ['A','S','D','F','G','H','J','K','L'];
@@ -35,8 +35,8 @@ export default function Keyboard({handleKeyPressed, addLetter, removeLetter, ent
                 removeLetter();
         } else {
                 enterClickHandler();
-        };
-    };
+        }
+    }
 
     return (
     <main className={`${flexCenter} flex-col`}>

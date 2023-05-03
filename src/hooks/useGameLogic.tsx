@@ -33,7 +33,7 @@ async function getWordFromServer() {
     } finally {
         setIsFetching(false)
     }
-};
+}
 
 async function checkWordAtServer (guess: string, requestObject: EncryptedObject = encryptedObject!) {
     if (requestObject) {
@@ -59,8 +59,8 @@ async function checkWordAtServer (guess: string, requestObject: EncryptedObject 
         } finally {
             setIsFetching(false)
         }
-    };
-};
+    }
+}
 let token: string;
 async function loginForToken (userObject: User) {
     const user = {
@@ -125,8 +125,8 @@ const addLetter = (letter: string) => {
 
     if (!( (gameState.currentTile+1) % 5 === 0)) {
     gameState.currentTile += 1;
-    } ;
-    };
+    }
+    }
 };
 
 const resetGame = () => {
@@ -155,8 +155,8 @@ let tileIdToRemove: number | undefined = undefined;
 for (let tile of tiles) {
 if (tile.content !== '' ) {
 tileIdToRemove = tile.id;
-};
-};
+}
+}
 return tileIdToRemove;
 };
 
@@ -175,8 +175,8 @@ newTiles.push(tile);
 setTiles(newTiles);
 // deletion occurred -> update current tile.
 gameState.currentTile = tileIdToRemove;
-};
-};                            
+}
+}                       
 };
 
 const enterClickHandler = () => {
@@ -184,7 +184,7 @@ const enterClickHandler = () => {
 
 if (gameState.guessAttempts < 6 && tiles[gameState.currentRowFirstTile +4].content !== '' ){
     
-    let wordToCheck: string = '';
+    let wordToCheck = '';
     // extract the word from relevant row
     const firstTileIndex: number = gameState.currentRowFirstTile;
     for (let i = firstTileIndex; i <= firstTileIndex+4 ; i++) {
@@ -197,47 +197,49 @@ if (gameState.guessAttempts < 6 && tiles[gameState.currentRowFirstTile +4].conte
 
     // restart word to check
     wordToCheck = '';
-    };
+    }
     };
 
 const handleKeyPressed = (event: KeyboardEvent) => {
-const { key, 
-keyCode} = event;
-if (keyCode >= 65 && keyCode <= 90) {
-addLetter(event.key.toUpperCase());
-} else if (key === 'Backspace') {
-removeLetter();
-} else if (key === 'Enter') {
-enterClickHandler();
-}
-};
+    const { key, 
+    keyCode} = event;
+    if (keyCode >= 65 && keyCode <= 90) {
+    addLetter(event.key.toUpperCase());
+    } else if (key === 'Backspace') {
+    removeLetter();
+    } else if (key === 'Enter') {
+    enterClickHandler();
+    }
+    };
 
 const checkWordValidity = (resultArray: string[]) => {
 
-const newTiles: Tile[] = [];
+    const newTiles: Tile[] = [];
 
-let letterIndex = 0;
-let bullLetters = 0;
-let cowLetters = 0;
+    let letterIndex = 0;
+    let bullLetters = 0;
+    let cowLetters = 0;
 
-tiles.forEach(tile => {
-if ( gameState.currentRowFirstTile <= tile.id && tile.id <= gameState.currentRowFirstTile + 4) {
-tile.className = resultArray[letterIndex][1];
+    tiles.forEach(tile => {
+    if ( gameState.currentRowFirstTile <= tile.id && tile.id <= gameState.currentRowFirstTile + 4) {
+    tile.className = resultArray[letterIndex][1];
+    
+    if (tile.className === 'bg-bull') {
+        bullLetters += 1
+    } else if (tile.className === 'bg-cow') { 
+        cowLetters +=1
+    }
 
-switch (tile.className) {
-    case 'bg-bull': bullLetters += 1;
-    case 'bg-cow': cowLetters +=1;
-}
-letterIndex += 1;
-}
-newTiles.push(tile)});
-setTiles(newTiles);
+    letterIndex += 1;
+    }
+    newTiles.push(tile)});
+    setTiles(newTiles);
 
-determineWinOrNot(bullLetters, cowLetters);
+    determineWinOrNot(bullLetters, cowLetters);
 
-letterIndex = 0;
-bullLetters = 0;
-cowLetters = 0;
+    letterIndex = 0;
+    bullLetters = 0;
+    cowLetters = 0;
 };
 
 const failMessages = [  'Nice Try!',
