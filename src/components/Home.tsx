@@ -1,6 +1,7 @@
 import AnimatedText from "./AnimatedText"
-import {Link } from 'react-router-dom'
-import HomeAnimation from "./HomeAnimation"
+import { Link } from 'react-router-dom'
+import ChangingString from "./ChangingString"
+import { flexCenter } from "../_mixin"
 const Home = () => {
   return (
     <div className="min-h-full bg-dark">
@@ -21,8 +22,8 @@ const Home = () => {
             </AnimatedText>
         </section>
     </main>
-    <main>
-      <HomeAnimation text="WORDLE" className="p-12"/>
+    <main className="p-12">
+      <ChangingString text="W O R D L E" className={`${flexCenter}`} />
     </main>
     </div >
   )

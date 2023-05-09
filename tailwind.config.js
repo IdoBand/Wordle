@@ -4,7 +4,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        mont: ['Montserrat', 'sans-serif']
+        mont: ['Montserrat', 'sans-serif'],
+        mono: ["Space Mono", 'monospace']
       },
       colors: {
         dark: 'rgb(31, 31, 31)',
@@ -23,4 +24,3 @@ export default {
   },
   plugins: [],
 }
-

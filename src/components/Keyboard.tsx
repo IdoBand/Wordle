@@ -7,15 +7,13 @@ interface KeyboardProps {
     removeLetter: any
     enterClickHandler: any
 }
-
-const BASIC_KEY_CLASSNAME = 'h-12 w-12 border-solid border border-black bg-keyCap rounded-lg m-0.5 hover:bg-light'
-const ENTER_BACK_CLASSNAME = 'h-12 w-20 bg-light rounded-lg m-0.5 hover:bg-red-400'
+const firstRow = ['Q','W','E','R','T','Y','U','I','O','P'];
+const secondRow = ['A','S','D','F','G','H','J','K','L'];
+const thirdRow = ['Z','X','C','V','B','N','M'];
+const BASIC_KEY_CLASSNAME = 'h-12 w-12 font-mont border-solid border border-black bg-keyCap rounded-lg m-0.5 hover:bg-light'
+const ENTER_BACK_CLASSNAME = 'h-12 w-20 font-mont bg-light rounded-lg m-0.5 hover:bg-red-400'
 export default function Keyboard({handleKeyPressed, addLetter, removeLetter, enterClickHandler}: KeyboardProps) {
-    const firsRow = ['Q','W','E','R','T','Y','U','I','O','P'];
-    const secondRow = ['A','S','D','F','G','H','J','K','L'];
-    const thirdRow = ['Z','X','C','V','B','N','M'];
 
-  
     useEffect(() => {
         window.addEventListener("keyup", (handleKeyPressed));
         // console.log('added event listener');
@@ -41,13 +39,12 @@ export default function Keyboard({handleKeyPressed, addLetter, removeLetter, ent
     return (
     <main className={`${flexCenter} flex-col`}>
         <div id="first-row" className="keyboard-row">
-            {firsRow.map(key => 
+            {firstRow.map(key => 
                 <button key={key} onClick={HandleClick} className={`${BASIC_KEY_CLASSNAME}`} id={key} type="button">{key}</button>)}
         </div>
         <div id="second-row" className="keyboard-row">
         {secondRow.map(key => 
                 <button key={key} onClick={HandleClick} className={`${BASIC_KEY_CLASSNAME}`} id={key} type="button">{key}</button>)}
-            
         </div>
         <div id="third-row" className="keyboard-row">
             <button onClick={HandleClick} className={`${ENTER_BACK_CLASSNAME}`} id="enter" type="button">ENTER ↲</button>

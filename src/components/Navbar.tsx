@@ -4,11 +4,13 @@ import { transformTranslateCenter } from '../_mixin';
 import Modal from './Modal';
 import HowToPlay from './HowToPlay';
 import About from './About';
+import ContactBar from './ContactBar';
 const Navbar = () => {
   const [about, setAbout] = useState<boolean>(false)
   const [howToPlay, setHowToPlay] = useState<boolean>(false)
   return (
     <>
+    <ContactBar />
     <header className='flex justify-between items-center relative w-full py-2 bg-dark text-light'>
         <nav className='pl-10'>
             <Link to={'/'} className='font-mont pl-2'>Home</Link>
