@@ -10,8 +10,14 @@ interface KeyboardProps {
 const firstRow = ['Q','W','E','R','T','Y','U','I','O','P'];
 const secondRow = ['A','S','D','F','G','H','J','K','L'];
 const thirdRow = ['Z','X','C','V','B','N','M'];
-const BASIC_KEY_CLASSNAME = 'h-12 w-12 font-mont border-solid border border-black bg-keyCap rounded-lg m-0.5 hover:bg-light'
-const ENTER_BACK_CLASSNAME = 'h-12 w-20 font-mont bg-light rounded-lg m-0.5 hover:bg-red-400'
+const BASIC_KEY_CLASSNAME = `h-12 w-12 font-mont border-solid border border-black bg-keyCap rounded-lg m-0.5 
+                            hover:bg-light
+                            lg:h-8 lg:w-8 !text-sm
+                            `
+const ENTER_BACK_CLASSNAME = `h-12 w-20 font-mont bg-light rounded-lg m-0.5 
+                            hover:bg-red-400
+                            lg:h-8 lg:w-14 !text-xs
+                            `
 export default function Keyboard({handleKeyPressed, addLetter, removeLetter, enterClickHandler}: KeyboardProps) {
 
     useEffect(() => {

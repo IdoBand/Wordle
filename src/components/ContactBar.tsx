@@ -4,17 +4,17 @@ const icons = [
         {
             icon: <GithubIcon className=""/>,
             link: 'https://github.com/IdoBand',
-            className: 'ml-4 mr-2',
+            className: 'ml-4 mr-2 lg:w-4',
             },
         {
             icon: <LinkedInIcon className="" />,
             link: 'https://www.linkedin.com/in/ido-band/',
-            className: 'mx-2',
+            className: 'mx-2 lg:w-4',
         },
         {
             icon: <GmailIcon className="hover:text-blue-500" />,
             link: 'mailto:ido.bandd@gmail.com',
-            className: 'mx-2',
+            className: 'mx-2 lg:w-4',
         },
         {
             icon: 'Portfolio',

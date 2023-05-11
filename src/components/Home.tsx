@@ -10,10 +10,10 @@ const Home = () => {
             <AnimatedText text="Welcome!" className="text-4xl" />
         </section>
         <section className="pt-3">
-            <AnimatedText text="If you're not familiar with the game, click on 'How To Play'." className="" />
+            <AnimatedText text="If you're not familiar with the game, click on 'How To Play'." className="lg:text-base" />
         </section>
         <section className="p-3 flex">
-            <AnimatedText text="Otherwise, you can" className="" >
+            <AnimatedText text="Otherwise, you can" className="lg:text-base" >
               <Link to={'/Game'}className="bg-dark text-light rounded-md p-1 w-40 text-center
                       hover:border-solid border-2 hover:border-dark hover:bg-light hover:text-dark"
                       >
@@ -23,7 +23,7 @@ const Home = () => {
         </section>
     </main>
     <main className="p-12">
-      <ChangingString text="W O R D L E" className={`${flexCenter}`} />
+      <ChangingString text="W O R D L E" className={`${flexCenter} lg:text-4xl`} />
     </main>
     </div >
   )
