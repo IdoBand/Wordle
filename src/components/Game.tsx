@@ -3,6 +3,7 @@ import Tiles from "./Tiles"
 import Keyboard from "./Keyboard";
 import { useEffect } from "react";
 import Spinner from "./Spinner";
+import { flexCenter } from "../_mixin";
 const Game = () => {
 
 const {
@@ -32,11 +33,12 @@ useEffect(() => {
     >
       <Tiles tiles={tiles} />
     </main>
-    <main className={`p-4 text-light ${dialogMessage.className} flex w-64 text-end`}>
-      <div className="w-2/3">
+    <main className={`h-12 text-light ${dialogMessage.className} flex w-64 my-2 rounded-xl text-end`}>
+      <div className={`${flexCenter} w-full gap-1`}>
         {dialogMessage.message}
+        {isFetching && <Spinner className={``}/>}
       </div>
-      {isFetching && <Spinner className={'w-1/3'}/>}
+      
     </main>
     <Keyboard 
       addLetter={addLetter}

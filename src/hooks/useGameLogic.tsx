@@ -29,7 +29,7 @@ async function getWordFromServer() {
         setError(true)
         setDialogMessage(
             {message: 'Server error :(',
-            className: 'bg-red-500 my-2 rounded-lg'})
+            className: 'bg-red-500'})
     } finally {
         setIsFetching(false)
     }
@@ -235,32 +235,41 @@ const checkWordValidity = (resultArray: string[]) => {
     newTiles.push(tile)});
     setTiles(newTiles);
 
-    determineWinOrNot(bullLetters, cowLetters);
+    determineWinOrNot(bullLetters);
 
     letterIndex = 0;
     bullLetters = 0;
     cowLetters = 0;
 };
 
-const failMessages = [  'Nice Try!',
-'So Close!',
-'Don\'t Give Up Yet!',
-'You\'re Getting There!',
-'Almost!',
-'Keep Trying!'];
-const determineWinOrNot = (bullLetters: number, cowLetters: number) =>{
-let newMessage: string = dialogMessage.message;
-let newClassName: string = dialogMessage.className;
-let updatedCurrentTile: number;
+const failMessages = [
+    'Nice Try!',
+    'So Close!',
+    'Don\'t Give Up Yet!',
+    'You\'re Getting There!',
+    'Almost!',
+    'Keep Trying!'
+];
+const determineWinOrNot = (bullLetters: number) =>{
+    let newMessage: string = dialogMessage.message;
+    let newClassName: string = dialogMessage.className;
+    let updatedCurrentTile: number;
 
-if ( bullLetters === 5 ) {
-newMessage = 'Well Done!';
-newClassName = 'victory';
-updatedCurrentTile = 998;
-} else if (cowLetters > 0 ) {
-newMessage = failMessages[Math.floor(Math.random() * failMessages.length)];
-updatedCurrentTile = gameState.currentTile + 1;
-} else {updatedCurrentTile = gameState.currentTile + 1; }
+    if ( bullLetters === 5 ) {
+        newMessage = 'Well Done!'
+        newClassName = 'bg-bull'
+        updatedCurrentTile = 998
+    } 
+    else if (gameState.currentRowFirstTile === 25) {
+        newMessage = 'Game Over :('
+        newClassName = 'bg-red-500'
+        updatedCurrentTile = gameState.currentTile + 1
+    }
+    else {
+        newMessage = failMessages[Math.floor(Math.random() * failMessages.length)]
+        newClassName = ''
+        updatedCurrentTile = gameState.currentTile + 1
+    }
     const newDialogMessage = {
         message: newMessage,
         className: newClassName,
