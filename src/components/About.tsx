@@ -1,7 +1,7 @@
 import { flexCenter } from "../_mixin"
 import { ReactIcon, TypeScriptIcon, ViteIcon, UbuntuIcon, AWSIcon, NodeJSIcon, ExpressIcon, PostreSQLIcon } from "./Icons"
 const aboutHeader = `${flexCenter}  w-full text-3xl my-3`
-const aboutText = `flex items-center w-full lg:text-xs flex-wrap`
+const aboutText = `flex items-center w-full lg:text-xs flex-wrap my-1`
 const About = () => {
   return (
     <main className={`flex justify-start flex-col w-full`}>

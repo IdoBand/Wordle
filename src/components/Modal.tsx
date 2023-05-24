@@ -15,11 +15,9 @@ export default function Modal({onClose, children, className}: ModalProps) {
                         ${className}`}
                         onClick={(e) => e.stopPropagation()}
                         >
-                                <button className={`absolute top-3 left-3 text-light hover:cursor-pointer hover:text-red-700`} 
-                                onClick={onClose}>X</button>
-                            <div className="modal-content">
-                                {children}
-                            </div>
+                            <button className={`absolute top-3 left-3 text-light hover:cursor-pointer hover:text-red-700`} 
+                            onClick={onClose}>X</button>
+                            {children}
                         </div>
                     </div>  
                 </>,

@@ -15,7 +15,8 @@ export default {
         bull: 'rgb(4, 188, 102)',
         cow: 'rgb(222, 222, 0)',
         default: 'rgb(90, 83, 83)',
-        keyCap: 'rgb(204, 188, 188)'
+        keyCap: 'rgb(204, 188, 188)',
+        lightBlue: 'rgb(147 197 253)'
       },
       gridTemplateColumns: {
         '5': 'repeat(5, 46px)'

@@ -2,23 +2,25 @@ import AnimatedText from "./AnimatedText"
 import { Link } from 'react-router-dom'
 import ChangingString from "./ChangingString"
 import { flexCenter } from "../_mixin"
+import { userContext } from '../providers/userProvider'
+import { useContext } from 'react'
 const Home = () => {
+
+  const { user, setUser } = useContext<any>(userContext)
+
   return (
     <div className="min-h-full bg-dark">
+
     <main className={`flex justify-start flex-col`}>
         <section className="p-16">
-            <AnimatedText text="Welcome!" className="text-4xl" />
+            <AnimatedText text={`Welcome${user ? ' ' + user.given_name : ''}!`} className="text-4xl" />
         </section>
         <section className="pt-3">
             <AnimatedText text="If you're not familiar with the game, click on 'How To Play'." className="lg:text-base" />
         </section>
         <section className="p-3 flex">
-            <AnimatedText text="Otherwise, you can" className="lg:text-base" >
-              <Link to={'/Game'}className="bg-dark text-light rounded-md p-1 w-40 text-center
-                      hover:border-solid border-2 hover:border-dark hover:bg-light hover:text-dark"
-                      >
-                      Start Playing
-              </Link>
+            <AnimatedText text="in order to save games and keep score, You can sign in." className="lg:text-base" >
+
             </AnimatedText>
         </section>
     </main>
