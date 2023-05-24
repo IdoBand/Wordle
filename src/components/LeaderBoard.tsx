@@ -23,7 +23,7 @@ const LeaderBoard = () => {
             setIsFetching(false)
         }   
     }
-    
+
     useEffect(() => {
         getLeaderBoard()
     }, [])
@@ -46,7 +46,11 @@ const LeaderBoard = () => {
         return (
         <div key={idx} className={`flex justify-between full`}>
             <div className='w-4/12 text-left'>{idx + 1}.</div>
-            <div className={`w-4/12 text-center ${user.email === leader.userId ? 'text-blue-400' : ''}`}>{leader.userName}</div>
+            {user ? 
+                <div className={`w-4/12 text-center ${user.email === leader.userId ? 'text-blue-400' : ''}`}>{leader.userName}</div>
+            :
+                <div className={`w-4/12 text-center`}>{leader.userName}</div>
+            }
             <div className='w-4/12 text-right'>{leader.sum}</div>
         </div>)
     })
